@@ -1,0 +1,77 @@
+{
+  "general": {
+    "page": 0,
+    "size": 30
+  },
+
+  "apiAccount": {
+    "accountNumber": "0183571",
+    "page": 0,
+    "size": 30,
+    "personaId": "482451",
+    "accountNumberCC": "201101254",
+    "initialCheckNumber":"16126"
+  },
+
+  "apiCards": {
+    "accountNumber3": 109490194,
+    "personId3": 1014822,
+    "fechaCierre": "2024-11-22",
+    "documentNumber3": 3443983,
+    "cardNumber3": "4E8E95ADDEC3F0D4DB47B6D900C7D8028561ABAB28847C3890ECD4C7D97D303C",
+    "periodo": "CORTE_EN_CURSO"
+  },
+
+  "apiLoanDetail": {
+    "accountNumber": "1110030871",
+    "page": 0,
+    "size": 30,
+    "personaId": "942180",
+    "cedula": "5295482",
+    "solicitationNumber": "1585681",
+    "solicitationNumber2": "2024398",
+    "guaranteeId": "57281"
+  },
+
+  "apiInvestmentDetail": {
+    "accountNumber": "04010896",
+    "accountNumber2": "08837848",
+    "accountNumber3": "1801623",
+    "page": 0,
+    "size": 99,
+    "personaId": "263406",
+    "solicitationNumber": "1585681",
+    "solicitationNumber2": "2024398",
+    "guaranteeId": "57281",
+    "cedula": "749667"
+  },
+
+  "apiPerson":{
+    "personId": "42743",
+    "personInhibicion": "502772"
+  },
+
+  "jsonDocuments" : {
+    "operationNumber": "365989",
+    "personId": "365989",
+    "personRelation": "P",
+    "typeDocumentNumber": "01",
+    "scanDate": "2024-08-18T16:22:41",
+    "emissionDate": "2024-08-09",
+    "dueDate": "2025-08-09",
+    "subsidiaryId": 1,
+    "comment": "Oi",
+    "moduleId": 4,
+    "modalityId": 332,
+    "tags": [
+      "TEST"
+    ]
+  },
+
+  "apiInformconf":{
+    "personId": "942015",
+    "solicitationNumber": "123456",
+    "docNumber": "4302992"
+  }
+
+}

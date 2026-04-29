@@ -1,0 +1,20 @@
+{
+  "fmc":
+    {
+      "codCustomer" : "876865",
+      "codCardCustomer" : 1014822,
+      "codPjuridica": "137141",
+      "nombreEmpresa": "DIESA",
+      "dniCustomerAccout" : "8115054",
+      "textConsultation" : "Consulta",
+      "textRecord" : "Team Automation",
+      "title": "Spa | empresa",
+      "agenda" : "Agenda",
+      "ctas" : "CTAs",
+      "resultSearch" : "Resultados de Búsqueda",
+      "products" : "Productos",
+      "story" : "Historial",
+      "priorities" : "Prioridades"
+        
+    }
+}

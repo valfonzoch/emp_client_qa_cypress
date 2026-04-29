@@ -1,0 +1,77 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+  displayName: 'Installing dependencies'
+
+- script: |
+    sudo apt update -y
+  displayName: 'Update apt'
+
+- script: |
+    sudo apt install -y openconnect
+  displayName: 'Install OpenConnect'
+
+- script: |
+    echo "Conectando a Cisco AnyConnect..."
+    if [ -z "$VPN_PASSWORD" ] || [ -z "$VPN_GROUP" ] || [ -z "$VPN_USER" ] || [ -z "$VPN_GATEWAY" ] || [ -z "$VPN_SERVERCERT_PIN" ]; then
+      echo "Faltan variables VPN_PASSWORD/VPN_GROUP/VPN_USER/VPN_GATEWAY/VPN_SERVERCERT_PIN en pipeline."
+      exit 1
+    fi
+    { echo "$VPN_PASSWORD"; echo "$VPN_GROUP"; } | sudo openconnect --protocol=anyconnect --no-dtls "$VPN_GATEWAY" -u "$VPN_USER" --servercert "pin-sha256:$VPN_SERVERCERT_PIN" --passwd-on-stdin &
+  displayName: 'Connect to Cisco AnyConnect VPN'
+  
+
+
+- script: |
+    sleep 30  # Espera 30 segundos para asegurar conexión VPN
+  displayName: 'Wait for VPN connection'
+
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      export LANG="es_ES.UTF-8"
+      if [ -z "$CYPRESS_RECORD_KEY" ]; then
+        echo "Falta CYPRESS_RECORD_KEY en variables de pipeline."
+        exit 1
+      fi
+      npx cypress run --headless --browser chrome --env configFile=$(Build.SourceBranchName) --record --key "$CYPRESS_RECORD_KEY"
+  displayName: 'Running tests'
+  continueOnError: false
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '*.xml'
+    searchFolder: '$(System.DefaultWorkingDirectory)/cypress/reports/junit'
+    mergeTestResults: true
+    testRunTitle: 'Publishing tests results'
+  displayName: 'Publishing Tests Results'
+
+# A partir de acá falla porque no encuentra la ruta
+#- task: PublishPipelineArtifact@1
+#  inputs:
+#    targetPath: $(System.DefaultWorkingDirectory)/cypress/reports/mochawesome/Reporte
+#    artifactName: mochawesome
+
+# A partir de acá falla porque no encuentra la ruta
+#- task: PublishPipelineArtifact@1
+#  inputs:
+#    targetPath: '$(System.DefaultWorkingDirectory)/cypress/reports/mochawesome/Reporte/videos'
+#    artifact: 'CypressVideos'
+
+- task: PublishHtmlReport@1
+  displayName: Publish E2E Test Report
+  condition: succeededOrFailed()
+  inputs:
+    reportDir: '$(System.DefaultWorkingDirectory)/cypress/reports/mochawesome/Reporte/report.html'
+    tabName: 'E2E'

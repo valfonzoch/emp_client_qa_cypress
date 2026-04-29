@@ -1,0 +1,22 @@
+{
+  "spa":
+    {
+      "meses" : [
+        "enero", "febrero", "marzo", "abril", "mayo", "junio", 
+        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+      ] ,
+      "nuevoEvento": "Se crea nuevo Evento para prueba automática",
+      "eventoEditado": "Se edita Evento para prueba automática",
+      "cliente": 5777456,
+      "agenda" :"Agenda",
+      "cta" :"CTAs",
+      "todosCtas" :"incluir ctas de mi equipo",
+      "ctaComercail" :"comercial",
+      "ctaAdministrativo" :"administrativo",
+      "ctaRiesgo" :"riesgos",
+      "ctaServicio" :"servicios",
+      "ctaNotificacion" :"notificación",
+      "ctaPropio" :"propio" 
+
+    }
+}

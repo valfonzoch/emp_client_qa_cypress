@@ -1,0 +1,13 @@
+node_modules
+screenshots
+reports
+downloads
+videos
+cypress.env.json
+.env
+.env.*
+!.env.example
+allure-results
+allure-report
+.idea
+.vscode

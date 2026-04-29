@@ -1,0 +1,21 @@
+{
+    "usuarios":{
+        "nombre":"Prueba",
+        "apellido":"Automatica",
+        "nombreUsuario": "automatica",
+        "nroDocumento": 5,
+        "email": "pruebaAutomatica",
+        "emailComp": "@empresaejem.com", 
+        "tipoUusario": "Supervisor/Gerente",
+        "areaNegocio": "persona natural",
+        "edicion": "Edicion"    },
+
+        "jerarquia": {
+            "direccion": "Caracas, Venezuela",
+            "escape": "{esc}"
+        },
+
+        "cartera": {
+            "rol": "Develop banco"
+        }
+}
