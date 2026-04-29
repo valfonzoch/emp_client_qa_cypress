@@ -57,18 +57,6 @@ steps:
     testRunTitle: 'Publishing tests results'
   displayName: 'Publishing Tests Results'
 
-# A partir de acá falla porque no encuentra la ruta
-#- task: PublishPipelineArtifact@1
-#  inputs:
-#    targetPath: $(System.DefaultWorkingDirectory)/cypress/reports/mochawesome/Reporte
-#    artifactName: mochawesome
-
-# A partir de acá falla porque no encuentra la ruta
-#- task: PublishPipelineArtifact@1
-#  inputs:
-#    targetPath: '$(System.DefaultWorkingDirectory)/cypress/reports/mochawesome/Reporte/videos'
-#    artifact: 'CypressVideos'
-
 - task: PublishHtmlReport@1
   displayName: Publish E2E Test Report
   condition: succeededOrFailed()
